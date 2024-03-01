@@ -1,0 +1,379 @@
+/* General styles */
+body {
+  height: 100vh; /* Set height to 100% of the viewport height */
+  margin: 0;
+  display: flex;
+  justify-content: left;
+  align-items: top;
+  background-color: #000000; /* Default background color */
+}
+
+/* Apply background cover styles universally for any page background */
+.index-page, .about-page, .contact-page, .work-page {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+  height: 100vh; /* Set height to 100% of the viewport height */
+}
+
+/* Unique page backgrounds */
+.about-page {
+  background-image: url("/static/deps/images/bg-image-about.jpg");
+}
+
+.contact-page {
+  background-image: url("/static/deps/images/bg-image-contact.jpg");
+}
+
+.work-page {
+  background-image: url("/static/deps/images/bg-image-work.jpg");
+}
+
+.index-page {
+  background-image: url("/static/deps/images/bg-image-index.jpg");
+}
+
+@media (max-width: 768px) {
+  .about-page, .contact-page, .work-page, .index-page {
+    background-position: top center; /* Adjust based on your design */
+  }
+}
+
+/* Example of adjusting background for better mobile compatibility */
+@media (max-width: 768px) {
+  .about-page, .contact-page, .work-page, .index-page {
+      background-attachment: scroll; /* Adjust background attachment on mobile */
+      height: auto; /* Adjust height for content */
+      min-height: 100vh; /* Ensure it covers at least the viewport height */
+  }
+}
+
+/* Repeating styles from your provided CSS */
+.dropdown-toggle::after {
+  content: none;
+}
+
+.custom-shadow {
+  box-shadow: 5px 5px 25px 19px #000000;
+}
+
+.product_id {
+  color: gray;
+  font-size: 15px;
+}
+
+.badge.bg-warning.text-dark {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  z-index: 1;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 1rem;
+  box-shadow: 2px 2px 15px 9px #000000;
+}
+
+/* Other styles remain unchanged */
+
+.animated-text:hover {
+  transform: scale(1.1);
+}
+
+@font-face {
+	font-family: 'Regular';
+	src: url('../fonts/Graphik-Regular.eot');
+	src: url('../fonts/Graphik-Regular.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/Graphik-Regular.woff') format('woff'),
+		url('../fonts/Graphik-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Semibold';
+	src: url('../fonts/Graphik-Semibold.eot');
+	src: url('../fonts/Graphik-Semibold.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/Graphik-Semibold.woff') format('woff'),
+		url('../fonts/Graphik-Semibold.ttf') format('truetype');
+	font-weight: 600;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Medium';
+	src: url('../fonts/Graphik-Medium.eot');
+	src: url('../fonts/Graphik-Medium.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/Graphik-Medium.woff') format('woff'),
+		url('../fonts/Graphik-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+html, body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    padding:0;
+    margin:0;
+	font-size: calc(1em + 1vw);
+}
+
+/*	=====================================================================
+									GENERAL							
+	===================================================================== */
+
+::selection {
+  color: rgba(255,255,255,.99);
+  background: rgba(0,0,0,.99);
+}
+::-moz-selection {
+  color: rgba(255,255,255,.99);
+  background: rgba(0,0,0,.99);
+}
+
+/* ------ Backgrounds ------ */
+.website-background-black {
+	background: #000000;
+}
+.website-background-white {
+	background: #ffffff;
+}
+
+/* ------ Colors ------ */
+.text-color-white {
+	color: #ffffff;
+}
+.text-color-red {
+	color: #ea0f1e;
+}
+.text-color-black {
+	color: #000000;
+}
+.text-color-gray {
+	color: #888888;
+}
+
+/* ------ Text styles ------ */
+.underline {
+	text-decoration: underline;
+}
+
+.hide-text-block {
+	position: relative;
+	display: block;
+	overflow: hidden;
+}
+
+h1 {
+	font-family:'Semibold';
+	position: fixed;
+	line-height: 110%;
+	letter-spacing: -2px;
+    font-size: 3.2em; /* general fallback */
+    font-size: 18vm; /* IE9 fallback */
+/*     font-size: 19vmin; */
+    font-size: 18vmin;
+
+}
+		@media screen and (max-width: 767px) {
+			h1 {
+			line-height: 130%;
+			}
+		}
+		
+h2 {
+	font-family:'Semibold';
+	line-height: 140%;
+	font-size: 100px;
+    font-size: 2.222em;
+}
+
+h3 {
+	font-family:'Medium';
+	line-height: 120%;
+	font-size: 64px;
+	/* font-size: 1.780em; */
+}
+
+h4 {
+	font-family:'Semibold';	
+	line-height: 140%;
+	font-size: 48px;
+	font-size: 40px;
+	margin: 16vh 0 4vh 0;
+	margin: 24vh 0 4vh 0;
+}
+		@media screen and (max-width: 767px) {
+			h4 {
+			font-size: 30px;
+			}
+		}
+h5 {
+	font-family:'Semibold';
+	line-height: 140%;
+	font-size: 36px;
+	font-size: 30px;
+	margin: 12vh 0 5vh 0;
+	margin: 12vh 0 3vh 0;
+	
+
+}
+		@media screen and (max-width: 767px) {
+			h5 {
+				font-size: 20px;
+			}
+		}
+h6 {
+	font-family: "Semibold";
+	line-height: 140%;
+	font-size: 24px;
+	margin: 8vh 0 2vh 0;	
+}	
+
+
+/* ------ paragraph styling ------ */
+
+p {
+	line-height: 170%;
+	font-family:'Regular';
+	font-size: 18px;
+	margin-bottom: 3vh;
+}
+
+p.size-small {
+	font-family: "Medium";
+	font-size: 16px;
+	margin-bottom: 0;
+}
+		@media screen and (max-width: 767px) {
+			p.size-small {
+			font-size: 14px;
+			}
+		}
+		
+.size-medium {
+	line-height: 180%;
+	font-size: 20px;
+}
+
+.size-large {
+	line-height: 160%;
+	font-size: 24px;
+	margin-bottom: 4vh;
+}
+
+b {
+	font-family: "Medium";
+}
+
+i {
+	font-style:italic;
+}
+
+
+/* ------ List ------ */
+ul {
+	line-height: 180%;
+	font-family:'Regular';
+	font-size: 18px;
+	margin-bottom: 5vh;
+}
+
+li {
+	margin-left: 3vh;
+}
+
+
+blockquote {
+	line-height: 170%;
+	font-family:'Regular';
+	font-size: 18px;
+/* 	font-style:italic; */
+	color: #666666;
+	margin: 6vmin 0;
+	padding: 10px 20px 10px 30px;
+	border-left:4px solid #dddddd;
+}
+
+
+
+/* ------ Links ------ */
+a, a:after, a:visited {
+	text-decoration: none;
+	cursor: pointer;
+	color: #000000;	
+}
+
+@media screen and (min-width: 768px) {
+	.hide-mobile {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.hide-web {
+		display: none;
+	}
+	.toggle-mobile-second {
+		display: none;
+	}
+	.mobile-tap-area {
+		background: transparent;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+	.tap-indication {
+    text-align: center;
+		width: 100%;
+		font-family:"Medium";
+		color: #ffffff;
+		position: fixed;
+		bottom: 4%;
+		font-size: 0.6em; /* general fallback */
+	    font-size: 3.6vm; /* IE9 fallback */
+	    font-size: 3.6vmin;
+		animation: bounce 1s infinite alternate;
+		
+		-webkit-animation:bounce .5s cubic-bezier(.5, .6, .6, 1) infinite alternate;
+		-moz-animation:bounce .5s cubic-bezier(.5, .6, .6, 1) infinite alternate;
+		animation:bounce .5s cubic-bezier(.5, .6, .6, 1) infinite alternate;	
+	}
+	@keyframes bounce {
+	  from {
+	    transform: translateY(0px);
+	  }
+	  to {
+	    transform: translateY(-8px);
+	  }
+	}
+	@-webkit-keyframes bounce {
+	  from {
+	    transform: translateY(0px);
+	  }
+	  to {
+	    transform: translateY(-8px);
+	  }
+	}
+}

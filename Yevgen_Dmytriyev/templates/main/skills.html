@@ -1,0 +1,133 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block body_class %}class="skills-page"{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'deps/css/my_css.css' %}">
+<!-- Your custom styles can go here if not in a separate CSS file -->
+{% endblock %}
+
+{% block scripts %}
+<!-- Ensure jQuery is properly loaded -->
+<script src="{% static 'deps/js/jquery/jquery-3.7.0.min.js' %}"></script>
+<script>
+    jQuery(document).ready(function($) {
+        $('.skillbar').each(function() {
+            $(this).find('.skillbar-bar').animate({
+                width: $(this).attr('data-percent')
+            }, 3000);
+        });
+    });
+</script>
+<script>
+    document.querySelectorAll('.animated-text').forEach(element => {
+        const originalText = element.textContent; // Store the original text for each element
+    
+        element.addEventListener('mouseover', function() {
+            // Change text based on the element's id
+            switch (element.id) {
+                case 'hello':
+                    element.textContent = '{% trans "About"%}';
+                    break;
+                case 'world':
+                    element.textContent = '{% trans "Skills"%}';
+                    break;
+                case 'im':
+                    element.textContent = '{% trans "Work"%}';
+                    break;
+                case 'kate':
+                    element.textContent = '{% trans "Contact" %}';
+                    break;
+            }
+        });
+    
+        element.addEventListener('mouseout', function() {
+            // Revert to the original text if not clicked
+            element.textContent = originalText;
+        });
+    
+        element.addEventListener('click', function() {
+            // Define URL mappings
+            const urlMap = {
+                'About': '{% url "main:about" %}',
+                'Skills': '{% url "main:skills" %}',
+                'Work': '{% url "main:work" %}',
+                'Contact': '{% url "main:contact" %}',
+            };
+            // Navigate based on the current text content
+            window.location.href = urlMap[element.textContent];
+        });
+    });
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5 pt-5">
+    <h3 class="text-left text-black"><strong>{{ title }}</strong></h3>
+    <ul>
+        <li>
+            <p class="wide text-black">Python</p>
+            <div class="back skillbar clearfix" data-percent="90%">
+                <div class="skill skillbar-bar text-black" style="height:28px;width:50%;">90%</div>
+            </div>
+        </li>
+        <li>
+            <p class="wide text-black">Object-Oriented Programming (OOP)</p>
+            <div class="back skillbar clearfix" data-percent="75%">
+                <div class="skill skillbar-bar text-black" style="height:28px;width:50%;">75%</div>
+            </div>
+        </li>
+        <li>
+            <p class="wide text-black">Django</p>
+            <div class="back skillbar clearfix" data-percent="70%">
+                <div class="skill skillbar-bar text-black" style="height:28px;width:50%">70%</div>
+            </div>
+        </li>
+        <li>
+            <p class="wide text-black">SQL & PostgreSQL</p>
+            <div class="back skillbar clearfix" data-percent="80%">
+                <div class="skill skillbar-bar text-black" style="height:28px;width:50%">80%</div>
+            </div>
+        </li>
+        <li>
+            <p class="wide text-black">HTML, CSS, JS</p>
+            <div class="back skillbar clearfix" data-percent="75%">
+                <div class="skill skillbar-bar text-black" style="height:28px;width:50%">75%</div>
+            </div>
+        </li>
+        <li>
+            <p class="wide text-black">REST API</p>
+            <div class="back skillbar clearfix" data-percent="55%">
+                <div class="skill skillbar-bar text-black" style="height:28px;width:70%">55%</div>
+            </div>
+        </li>
+        <li>
+            <p class="wide text-black">Amazon Web Services (AWS)</p>
+            <div class="back skillbar clearfix" data-percent="80%">
+                <div class="skill skillbar-bar text-black" style="height:28px;width:50%">80%</div>
+            </div>
+        </li>
+        <li>
+            <p class="wide text-black">Google Cloud Platform (GCP)</p>
+            <div class="back skillbar clearfix" data-percent="70%">
+                <div class="skill skillbar-bar text-black" style="height:28px;width:50%">70%</div>
+            </div>
+        </li>
+        <li>
+            <p class="wide text-black">CI/CD</p>
+            <div class="back skillbar clearfix" data-percent="50%">
+                <div class="skill skillbar-bar text-black" style="height:28px;width:70%">50%</div>
+            </div>
+        </li>
+        <li>
+            <p class="wide text-black">GitHub</p>
+            <div class="back skillbar clearfix" data-percent="85%">
+                <div class="skill skillbar-bar text-black" style="height:28px;width:50%">85%</div>
+            </div>
+        </li>
+    </ul>
+</div>
+{% endblock %}
+

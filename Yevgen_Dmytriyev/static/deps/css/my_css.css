@@ -1,0 +1,597 @@
+/* General styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+	background-color: #ec961e; /* Default background color */
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: row; /* Arrange children in a row */
+    width: 200%; /* Full width to prevent horizontal scrolling */
+    height: 100%; /* Full height */
+    align-items: flex-start; /* Align items to the start of the flex container */
+    overflow-x: hidden; /* Hide horizontal overflow */
+    overflow-y: auto; /* Enable vertical scrolling */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+.page-container > * {
+    flex: 0 0 50%; /* Do not grow, do not shrink, start at 50% of the parent width */
+    max-width: 50%; /* Ensure it does not grow beyond 50% */
+    /* Add padding or margins as necessary */
+}
+
+.content {
+    width: 50%;
+    height: 100%;
+    float: left;
+    background-color: #ffffff; /* Adjust as needed */
+}
+
+.fixed-content, .index-page {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: #000000; /* Adjust as needed */
+}
+
+/* Rest of the CSS remains unchanged */
+
+@media (max-width: 768px) {
+  .about-page, .skills-page, .contact-page, .work-page, .index-page {
+    background-position: top center; /* Adjust based on your design */
+  }
+}
+
+/* Example of adjusting background for better mobile compatibility */
+@media (max-width: 768px) {
+  .about-page, .skills-page, .contact-page, .work-page, .index-page {
+      background-attachment: scroll; /* Adjust background attachment on mobile */
+      height: auto; /* Adjust height for content */
+      min-height: 100vh; /* Ensure it covers at least the viewport height */
+  }
+}
+
+/* Repeating styles from your provided CSS */
+.dropdown-toggle::after {
+  content: none;
+}
+
+.custom-shadow {
+  box-shadow: 5px 5px 25px 19px #000000;
+}
+
+.product_id {
+  color: gray;
+  font-size: 15px;
+}
+
+.badge.bg-warning.text-dark {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  z-index: 1;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 1rem;
+  box-shadow: 2px 2px 15px 9px #000000;
+}
+
+/* Other styles remain unchanged */
+
+.animated-text:hover {
+  transform: scale(1.1);
+}
+
+@font-face {
+	font-family: 'Regular';
+	src: url('../fonts/Graphik-Regular.eot');
+	src: url('../fonts/Graphik-Regular.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/Graphik-Regular.woff') format('woff'),
+		url('../fonts/Graphik-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Semibold';
+	src: url('../fonts/Graphik-Semibold.eot');
+	src: url('../fonts/Graphik-Semibold.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/Graphik-Semibold.woff') format('woff'),
+		url('../fonts/Graphik-Semibold.ttf') format('truetype');
+	font-weight: 600;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Medium';
+	src: url('../fonts/Graphik-Medium.eot');
+	src: url('../fonts/Graphik-Medium.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/Graphik-Medium.woff') format('woff'),
+		url('../fonts/Graphik-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+
+/*	=====================================================================
+									GENERAL							
+	===================================================================== */
+
+::selection {
+  color: rgba(255,255,255,.99);
+  background: rgba(0,0,0,.99);
+}
+::-moz-selection {
+  color: rgba(255,255,255,.99);
+  background: rgba(0,0,0,.99);
+}
+
+/* ------ Colors ------ */
+.text-color-white {
+	color: #ffffff;
+}
+.text-color-red {
+	color: #000;
+}
+.text-color-black {
+	color: #000000;
+}
+.text-color-gray {
+	color: #888888;
+}
+
+/* ------ Text styles ------ */
+.underline {
+	text-decoration: underline;
+}
+
+.hide-text-block {
+	position: relative;
+	display: block;
+	overflow: hidden;
+}
+
+h1 {
+	font-family:'Semibold';
+	position: fixed;
+	line-height: 110%;
+	letter-spacing: -2px;
+    font-size: 3.2em; /* general fallback */
+    font-size: 18vm; /* IE9 fallback */
+/*     font-size: 19vmin; */
+    font-size: 18vmin;
+
+}
+		@media screen and (max-width: 767px) {
+			h1 {
+			line-height: 130%;
+			}
+		}
+		
+h2 {
+	font-family:'Semibold';
+	line-height: 140%;
+	font-size: 100px;
+    font-size: 2.222em;
+}
+
+h3 {
+	font-family:'Medium';
+	line-height: 120%;
+	font-size: 64px;
+	/* font-size: 1.780em; */
+}
+
+h4 {
+	font-family:'Semibold';	
+	line-height: 140%;
+	font-size: 48px;
+	font-size: 40px;
+	margin: 16vh 0 4vh 0;
+	margin: 24vh 0 4vh 0;
+}
+		@media screen and (max-width: 767px) {
+			h4 {
+			font-size: 30px;
+			}
+		}
+h5 {
+	font-family:'Semibold';
+	line-height: 140%;
+	font-size: 36px;
+	font-size: 30px;
+	margin: 12vh 0 5vh 0;
+	margin: 12vh 0 3vh 0;
+	
+
+}
+		@media screen and (max-width: 767px) {
+			h5 {
+				font-size: 20px;
+			}
+		}
+h6 {
+	font-family: "Semibold";
+	line-height: 140%;
+	font-size: 24px;
+	margin: 8vh 0 2vh 0;	
+}	
+
+
+/* ------ paragraph styling ------ */
+
+p {
+	line-height: 170%;
+	font-family:'Regular';
+	font-size: 18px;
+	margin-bottom: 0.1vh;
+}
+
+p.size-small {
+	font-family: "Medium";
+	font-size: 16px;
+	margin-bottom: 0;
+}
+		@media screen and (max-width: 767px) {
+			p.size-small {
+			font-size: 14px;
+			}
+		}
+		
+.size-medium {
+	line-height: 180%;
+	font-size: 20px;
+}
+
+.size-large {
+	line-height: 160%;
+	font-size: 24px;
+	margin-bottom: 4vh;
+}
+
+b {
+	font-family: "Medium";
+}
+
+i {
+	font-style:italic;
+}
+
+
+/* ------ List ------ */
+ul {
+	line-height: 180%;
+	font-family:'Regular';
+	font-size: 18px;
+	margin-bottom: 5vh;
+}
+
+li {
+	margin-left: 3vh;
+}
+
+
+blockquote {
+	line-height: 170%;
+	font-family:'Regular';
+	font-size: 18px;
+/* 	font-style:italic; */
+	color: #666666;
+	margin: 6vmin 0;
+	padding: 10px 20px 10px 30px;
+	border-left:4px solid #dddddd;
+}
+
+
+
+/* ------ Links ------ */
+a, a:after, a:visited {
+	text-decoration: none;
+	cursor: pointer;
+	color: #dddddd;	
+}
+
+@media screen and (min-width: 768px) {
+	.hide-mobile {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.hide-web {
+		display: none;
+	}
+	.toggle-mobile-second {
+		display: none;
+	}
+	.mobile-tap-area {
+		background: transparent;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+	.tap-indication {
+    text-align: center;
+		width: 100%;
+		font-family:"Medium";
+		color: #ffffff;
+		position: fixed;
+		bottom: 4%;
+		font-size: 0.6em; /* general fallback */
+	    font-size: 3.6vm; /* IE9 fallback */
+	    font-size: 3.6vmin;
+		animation: bounce 1s infinite alternate;
+		
+		-webkit-animation:bounce .5s cubic-bezier(.5, .6, .6, 1) infinite alternate;
+		-moz-animation:bounce .5s cubic-bezier(.5, .6, .6, 1) infinite alternate;
+		animation:bounce .5s cubic-bezier(.5, .6, .6, 1) infinite alternate;	
+	}
+	@keyframes bounce {
+	  from {
+	    transform: translateY(0px);
+	  }
+	  to {
+	    transform: translateY(-8px);
+	  }
+	}
+	@-webkit-keyframes bounce {
+	  from {
+	    transform: translateY(0px);
+	  }
+	  to {
+	    transform: translateY(-8px);
+	  }
+	}
+}
+
+.back {
+    background: none !important;
+}
+
+.back.skillbar.clearfix {
+    max-width: 700px; /* Set this to whatever maximum width you desire */
+}
+
+.skill {
+    background: linear-gradient(90deg, #ffffff 0%, #ffffff  100%);
+    text-align: right;
+    padding-right: 20px;
+    line-height: 30px;
+    border-radius: 0 20px 20px 0;
+}
+
+.contact-page {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+}
+
+/* Style for all input types by default */
+.u-input {
+    background-color: transparent;
+    border: none;
+    color: #000;
+    width: 60%; 
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+/* Style specifically for text input fields */
+.u-input[type="text"] {
+    border-bottom: 2px solid #000;
+    padding: 40px 0;
+	padding-bottom: 0.5px;
+    font-size: 16px;
+}
+
+/* Style specifically for email input fields */
+.u-input[type="email"] {
+    border-bottom: 2px solid #000;
+    padding: 0;
+	padding-bottom: 4px;
+    font-size: 16px;
+}
+
+/* Style for focus state on input fields */
+.u-input:focus {
+    outline: none;
+    border-bottom-color: #000;
+}
+
+/* Style for input placeholders */
+.u-input::placeholder {
+    color: #000;
+    opacity: 0.7;
+}
+
+/* Specific styles for textarea */
+.u-textarea {
+    border-bottom: 2px solid #000;
+    padding: 0;
+    font-size: 16px;
+    height: 250px; /* Specific height for the textarea */
+    resize: vertical;
+}
+
+/* Button styles */
+.u-btn-1 {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 0;
+    font-size: 18px;
+    letter-spacing: 1px;
+    display: block;
+    width: 60%;
+    height: 50px;
+    line-height: 50px;
+    margin-top: 5px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+.u-btn-1:hover {
+    background-color: #000;
+}
+
+/* Spacing for form groups */
+.u-form-group {
+    margin-bottom: 5px;
+}
+
+/* Message styling */
+.alert {
+    background-color: #fff;
+    color: #131111;
+    padding: 10px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 4px;
+	width: 60%;
+}
+
+.alert-success {
+    background-color: #fff;
+}
+
+.alert-error {
+    background-color: #000;
+}
+
+.u-input:-webkit-autofill,
+.u-input:-webkit-autofill:hover, 
+.u-input:-webkit-autofill:focus, 
+.u-input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #ec961e inset !important;
+    -webkit-text-fill-color: black !important;
+}
+
+.u-textarea:-webkit-autofill,
+.u-textarea:-webkit-autofill:hover,
+.u-textarea:-webkit-autofill:focus,
+.u-textarea:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #ec961e inset !important;
+    -webkit-text-fill-color: black !important;
+}
+
+.u-input:-moz-ui-invalid,
+.u-input:-moz-ui-valid,
+.u-textarea:-moz-ui-invalid,
+.u-textarea:-moz-ui-valid {
+    background-color: #ec961e;
+    color: black;
+}
+
+.social-icons {
+    display: flex;
+    align-items: center; /* Vertically align icons */
+}
+
+.github-link,
+.linkedin-link {
+    margin-right: 5px; /* Adjust spacing between icons */
+}
+
+.github-icon,
+.linkedin-icon {
+    margin: 5px;
+    width: 38px; /* Specify the width of the icons */
+    height: 38px; /* Specify the height of the icons */
+}
+
+.email-icon {
+    margin: 5px 5px; /* Adjust the top and bottom margin to lower the icon */
+    width: 38px; /* Specify the width of the icons */
+    height: 38px; /* Specify the height of the icons */
+	transform: translateY(7%);
+}
+
+.phone-icon {
+    margin: 5px;
+    width: 12px; /* Adjust the width of the phone icon */
+    height: 12px; /* Adjust the height of the phone icon */
+}
+
+.phone {
+    display: flex;
+    align-items: center; /* Aligns items vertically in the middle */
+    justify-content: flex-start; /* Aligns items horizontally to the start; change to 'center' if you want it to be in the exact middle */
+}
+
+.phone-icon {
+    /* Adjust margins if necessary to add some space between the icon and the text */
+    margin-right: 5px; /* This adds a right margin to the icon */
+}
+
+.phone-text {
+    /* If you need to adjust the vertical position of the text, you can use transform */
+    /* This is optional and only needed if the text does not align perfectly in the middle */
+    transform: translateY(0%);
+}
+
+.address-icon {
+    margin: 5px;
+    width: 10px; /* Adjust the width of the address icon */
+    height: 12px; /* Adjust the height of the address icon */
+}
+
+.address {
+    position: relative;
+}
+
+.address-text {
+    position: absolute;
+    bottom: 0;
+    transform: translateY(-25%);
+}
+
+.download-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #000;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+	font-weight: bold; /* Make text bold */
+}
+
+.download-button:hover {
+    background-color: #ffffff;
+    color: #000000;
+    text-decoration: none; /* No underline on hover */
+	font-weight: bold; /* Make text bold */
+}

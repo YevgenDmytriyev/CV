@@ -1,0 +1,23 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block body_class %}class="about-page"{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'deps/css/my_css.css' %}">
+<!-- Your custom styles can go here if not in a separate CSS file -->
+{% endblock %}
+
+{% block content %}
+<!-- Inline style for background -->
+<div class="container mt-5 pt-5">
+    <h3 class="text-left text-black"><strong>{{ title }}</strong></h3>
+    <h3 class="text-left text-black"><strong>{{ content |linebreaks }}</strong></h3>
+    <!-- Add this line for the resume download link -->
+    <a href="{% static 'deps/images/Yevgen_Dmytriyev_CV.pdf' %}" download="Yevgen_Dmytriyev_CV.pdf" class="download-button">
+        Download My Resume
+    </a>
+</div>
+{% endblock %}
+

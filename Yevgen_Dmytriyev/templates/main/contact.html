@@ -1,0 +1,70 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block body_class %}class="contact-page"{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'deps/css/my_css.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5 pt-5">
+    <h3 class="text-left text-black"><strong>{{ title }}</strong></h3>
+    {% comment %} <h3 class="text-left text-white"><strong style="text-shadow: 2px 2px 4px #000;">{{ content |linebreaks }}</strong></h3> {% endcomment %}
+    <p class="text-left text-black">
+        <div class="address">
+            <img src="{% static 'deps/icons/address.png' %}" alt="Address" class="icon address-icon">
+            <span class="address-text text-black">Berlin, Germany</span>
+        </div>
+    </p>
+    <p class="text-left text-black">
+        <div class="phone">
+            <img src="{% static 'deps/icons/phoneaddress.png' %}" alt="Phone" class="icon phone-icon">
+            <span class="phone-text text-black">+49 162 47 76 735</span>
+        </div>
+    </p>
+    <p class="text-left text-black">
+        <div class="social-icons">
+            <a href="mailto:dmitrievevgenii@gmail.com" class="email-link">
+                <span class="email-icon">
+                    <img src="{% static 'deps/icons/email.png' %}" alt="Email" class="email-icon">
+                </span>
+            </a>
+            <a href="https://github.com/YevgenDmytriyev" class="github-link">
+                <img src="{% static 'deps/icons/github.png' %}" alt="GitHub" class="github-icon">
+            </a>
+            <a href="http://www.linkedin.com/in/yevgen-dmytriyev-7457b2285/" class="linkedin-link">
+                <img src="{% static 'deps/icons/linkedin.png' %}" alt="LinkedIn" class="linkedin-icon">
+            </a>
+        </div>
+    </p>
+    
+    <form action="{% url 'main:contact' %}" method="POST" class="u-clearfix u-form-spacing-24 u-form-vertical u-inner-form" style="padding: 0px;">
+        {% csrf_token %}
+        <div class="u-form-group u-form-name">
+            <label for="name" class="u-form-control-hidden u-label"></label>
+            <input type="text" placeholder="{% trans 'Enter your Name' %}" id="name" name="name" class="u-input u-input-rectangle" required="">
+        </div>
+        <div class="u-form-group u-form-email">
+            <label for="email" class="u-form-control-hidden u-label"></label>
+            <input type="email" placeholder="{% trans 'Enter a valid email address' %}" id="email" name="email" class="u-input u-input-rectangle" required="">
+        </div>
+        <div class="u-form-group u-form-message">
+            <label for="message" class="u-form-control-hidden u-label"></label>
+            <textarea placeholder="{% trans 'Enter your message' %}" rows="4" cols="50" id="message" name="message" class="u-input u-textarea" required=""></textarea>
+        </div>
+        <div class="u-form-group u-align-left u-form-submit">
+            <button type="submit" id="submitBtn" class="u-btn u-btn-submit u-button-style u-btn-1" style="background-color: black; color: #ffffff; border: none; text-transform: uppercase;">{% trans 'Submit' %}</button>
+        </div>
+    </form>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}
+

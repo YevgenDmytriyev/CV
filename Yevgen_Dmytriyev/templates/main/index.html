@@ -1,0 +1,87 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block body_class %}class="index-page"{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'deps/css/my_css.css' %}">
+<link rel="stylesheet" href="{% static 'deps/css/styles.css' %}">
+<style>
+    .animated-text {
+        cursor: pointer;
+        font-size: 180px;
+        transition: color 0.1s ease;
+        margin: 10px;
+        display: inline-block;
+    }
+    .animated-text:hover {
+        color: #3498db; /* Change as needed */
+    }
+</style>
+{% endblock %}
+
+<body>
+    <div class="container mt-5">
+        <div class="page-container">
+            {% block fixed-content %}
+                <h1>
+                    <div class="container">
+                        <div id="hello" class="animated-text" style="color: #f0f0f0; text-align: left; margin-left: -120px;">Hello</div>
+                        <div id="world" class="animated-text" style="color: #f0f0f0; text-align: left; margin-left: -120px;">World</div>
+                        <div id="im" class="animated-text" style="color: #000; text-align: left; margin-left: -120px;">I am</div>
+                        <div id="kate" class="animated-text" style="color: #000; text-align: left; margin-left: -120px;">Yevgen</div>
+                    </div>
+                </h1>
+            {% endblock %}
+            {% block page-contentainer %}
+                {% block content %}
+                {% endblock %}
+            {% endblock %}
+        </div>
+    </div>
+
+    {% block scripts %}
+        <script src="{% static 'deps/js/jquery/jquery-3.7.0.min.js' %}"></script>
+        <script>
+            document.querySelectorAll('.animated-text').forEach(element => {
+                const originalText = element.textContent; // Store the original text for each element
+            
+                element.addEventListener('mouseover', function() {
+                    // Change text based on the element's id
+                    switch (element.id) {
+                        case 'hello':
+                            element.textContent = '{% trans "About"%}';
+                            break;
+                        case 'world':
+                            element.textContent = '{% trans "Skills"%}';
+                            break;
+                        case 'im':
+                            element.textContent = '{% trans "Work"%}';
+                            break;
+                        case 'kate':
+                            element.textContent = '{% trans "Contact" %}';
+                            break;
+                    }
+                });
+            
+                element.addEventListener('mouseout', function() {
+                    // Revert to the original text if not clicked
+                    element.textContent = originalText;
+                });
+            
+                element.addEventListener('click', function() {
+                    // Define URL mappings
+                    const urlMap = {
+                        'About': '{% url "main:about" %}',
+                        'Skills': '{% url "main:skills" %}',
+                        'Work': '{% url "main:work" %}',
+                        'Contact': '{% url "main:contact" %}',
+                    };
+                    // Navigate based on the current text content
+                    window.location.href = urlMap[element.textContent];
+                });
+            });
+        </script>
+    {% endblock %}
+</body>
